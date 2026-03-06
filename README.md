@@ -96,15 +96,3 @@ This project focuses on classifying clothing images into 10 categories:
 Achieved high accuracy on the validation set without significant overfitting 88.
 - Test Accuracy = 91
 - Train Accuracy = 90
-
-Requirements
-
-Python 3.10+
-
-tensorflow>=2.12.0,<2.21.0
-
-numpy
-
-pillow
-
-matplotlib
