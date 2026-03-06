@@ -1,6 +1,5 @@
-streamlit
-numpy
+streamlit==1.25.0
 matplotlib
-tensorflow
+tensorflow>=2.12.0,<2.21.0
+numpy
 pillow
-gdown
