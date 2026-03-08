@@ -75,6 +75,35 @@ This project focuses on classifying clothing images into 10 categories:
 
 - Images were resized and preprocessed to match the input requirements of Xception.
 
+- - https://github.com/alexeygrigorev/clothing-dataset-small
+
+
+## Model Selection
+
+- For this project, several convolutional neural network architectures were evaluated for the clothing classification task. Since the dataset contains diverse clothing categories with variations in texture, shape, and appearance, choosing an appropriate pretrained model was an important step.
+
+- Multiple pretrained models from the ImageNet family were tested and compared on the same dataset. These included architectures such as ResNet, MobileNet, and VGG. Each model was fine-tuned using transfer learning while keeping a similar training setup in order to ensure a fair comparison.
+
+- After experimentation, Xception achieved the highest validation accuracy among the tested models. The architecture performed better at capturing fine-grained visual features present in clothing images.
+
+- One of the reasons Xception works well for this task is its use of depthwise separable convolutions, which allow the network to learn spatial and channel-wise features more efficiently than standard convolution layers. This makes the model particularly effective for datasets where subtle visual differences between classes exist, such as distinguishing between shirts, t-shirts, and long sleeves.
+
+- Because of its strong feature extraction capability and superior performance during experimentation, Xception was selected as the final backbone architecture for the classifier.
+
+### Alternative Models to Consider
+
+- Although Xception performed best in this project, several other architectures are commonly used for image classification and can also be effective depending on the dataset size and computational constraints:
+
+- ResNet50 / ResNet101 – Strong baseline models with residual connections that help training deeper networks.
+
+- MobileNetV2 / MobileNetV3 – Lightweight models suitable for deployment on mobile or low-resource environments.
+
+- EfficientNet – Highly optimized architecture balancing accuracy and computational efficiency.
+
+- VGG16 / VGG19 – Simpler architectures often used as baselines in transfer learning experiments.
+
+- These architectures are widely recommended for transfer learning tasks and can serve as strong alternatives when experimenting with similar image classification problems.
+- 
 ## Model Training Pipeline
 
 - Load pretrained Xception base (include_top=False) for feature extraction.
