@@ -122,6 +122,6 @@ This project focuses on classifying clothing images into 10 categories:
 
 ## Results
 
-Achieved high accuracy on the validation set without significant overfitting 88.
-- Test Accuracy = 91
-- Train Accuracy = 90
+Achieved high accuracy on the validation set without significant overfitting 88%.
+- Test Accuracy = 91%
+- Train Accuracy = 90%
