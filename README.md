@@ -99,10 +99,10 @@ The model achieved strong performance with minimal overfitting:
 
 Multiple pretrained architectures were evaluated:
 
-- ResNet50 / ResNet101  
-- MobileNetV2 / MobileNetV3  
-- VGG16 / VGG19  
-- EfficientNet  
+- Xception
+- VGG16 
+- ResNet50
+- MobileNetV2
 
 ### 🏆 Why Xception?
 Xception outperformed other models due to:
