@@ -66,7 +66,7 @@ Applied to improve generalization:
 - Images were resized and preprocessed to match Xception input format  
 
 🔗 Dataset:  
-https://github.com/alexeygrigorev/clothing-dataset-small
+[Data](https://github.com/alexeygrigorev/clothing-dataset-small)
 
 ---
 
