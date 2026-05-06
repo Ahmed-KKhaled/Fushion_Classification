@@ -1,127 +1,137 @@
-# Fushion_Classification 👕
+# 👕 Fashion Classification with Xception
 
-## Clothing Classification using Xception and Transfer Learning
+## 📌 Overview
+This project focuses on **multi-class clothing image classification** using **Transfer Learning** with the **Xception architecture**.  
+The model classifies images into **10 clothing categories**:
 
-This project focuses on classifying clothing images into 10 categories:
+- Dress  
+- Hat  
+- Long Sleeve  
+- Outwear  
+- Pants  
+- Shirt  
+- Shoes  
+- Shorts  
+- Skirt  
+- T-shirt  
 
-- dress
+---
 
-- hat
+## 🧠 Model Architecture
 
-- longsleeve
+The model is built on top of a **pretrained Xception network (ImageNet weights)** with custom modifications:
 
-- outwear
+- Removed the top classification layers (`include_top=False`)
+- Added:
+  - Global Average Pooling layer
+  - Fully connected (Dense) layers
+  - Dropout for regularization
+- Final layer uses **Softmax activation** for multi-class classification
 
-- pants
+---
 
-- shirt
+## ⚙️ Key Techniques
 
-- shoes
+### 🔹 Transfer Learning
+- Leveraged pretrained Xception as a feature extractor
+- Fine-tuned upper layers to adapt to the clothing dataset
 
-- shorts
+### 🔹 Data Augmentation
+Applied to improve generalization:
+- Rotation
+- Horizontal flipping
+- Zooming
+- Shifting
 
-- skirt
+### 🔹 Regularization
+- Dropout layers added to reduce overfitting
 
-- tshirt
+### 🔹 Learning Rate Tuning
+- Optimized using **Adam optimizer**
+- Learning rate adjustments improved convergence stability
 
-## The classification model is based on Xception pretrained on ImageNet, with modifications for the clothing dataset.
+### 🔹 Checkpointing
+- Saved best model weights during training
+- Prevented loss of progress and enabled best model selection
 
-### Key Techniques Used
+### 🔹 Global Average Pooling
+- Reduced model parameters
+- Improved generalization over fully connected flattening
 
-- During the development of this project, several important techniques were applied to improve model performance and generalization:
+---
 
-- Transfer Learning
+## 📂 Dataset
 
-- The convolutional base of Xception was used to extract features.
+- Contains labeled clothing images across 10 categories
+- Images were resized and preprocessed to match Xception input format  
 
-- Fully connected layers were replaced to adapt to the clothing dataset.
+🔗 Dataset:  
+https://github.com/alexeygrigorev/clothing-dataset-small
 
-- Data Augmentation
+---
 
-- Techniques like rotation, horizontal flips, zooming, and shifting were applied to the training dataset.
+## 🏗️ Training Pipeline
 
-- This helps the model generalize better and reduces overfitting.
+1. Load pretrained Xception model (`include_top=False`)
+2. Extract features using convolutional base
+3. Apply GlobalAveragePooling2D
+4. Add custom dense + dropout layers
+5. Compile model:
+   - Optimizer: Adam  
+   - Loss: Categorical Crossentropy  
+6. Train with data augmentation
+7. Save best model using checkpoints
+8. Evaluate on validation set
 
-- Adjusting the Learning Rate
+---
 
-- The Adam optimizer with a tuned learning rate was used.
+## 📊 Results
 
-- Learning rate adjustments were applied to stabilize training and improve convergence.
+The model achieved strong performance with minimal overfitting:
 
-- Dropout Regularization
+- ✅ **Train Accuracy:** 90%  
+- ✅ **Validation Accuracy:** 88%  
+- ✅ **Test Accuracy:** 91%  
 
-- Dropout layers were added between dense layers to prevent overfitting.
+---
 
-- Checkpointing
+## 🔍 Model Comparison
 
-- Model checkpoints were used to save the best model weights during training.
+Multiple pretrained architectures were evaluated:
 
-- Ensures recovery in case of interruptions and allows selecting the best performing model.
+- ResNet50 / ResNet101  
+- MobileNetV2 / MobileNetV3  
+- VGG16 / VGG19  
+- EfficientNet  
 
-- Global Average Pooling
+### 🏆 Why Xception?
+Xception outperformed other models due to:
 
-- Applied to the convolutional feature maps before the dense layers.
+- Depthwise separable convolutions  
+- Better spatial + channel feature extraction  
+- Strong performance on fine-grained differences (e.g. shirt vs t-shirt)
 
-- Reduces the number of parameters and summarizes features effectively.
+---
 
-- Categorical Crossentropy with Logits
+## 🚀 Future Improvements
 
-- Used for multi-class classification.
+- Hyperparameter tuning (batch size, learning rate schedules)
+- Fine-tuning deeper layers of Xception
+- Using larger dataset for better generalization
+- Experimenting with EfficientNet / Vision Transformers
+- Deploying model using Flask or FastAPI
 
+---
 
-## Dataset
+## 🛠️ Tech Stack
 
-- The dataset contains labeled images of clothing items across 10 categories.
+- Python  
+- TensorFlow / Keras  
+- NumPy / Pandas  
+- Matplotlib  
 
-- Images were resized and preprocessed to match the input requirements of Xception.
+---
 
-- - https://github.com/alexeygrigorev/clothing-dataset-small
+## 📬 Contact
 
-
-## Model Selection
-
-- For this project, several convolutional neural network architectures were evaluated for the clothing classification task. Since the dataset contains diverse clothing categories with variations in texture, shape, and appearance, choosing an appropriate pretrained model was an important step.
-
-- Multiple pretrained models from the ImageNet family were tested and compared on the same dataset. These included architectures such as ResNet, MobileNet, and VGG. Each model was fine-tuned using transfer learning while keeping a similar training setup in order to ensure a fair comparison.
-
-- After experimentation, Xception achieved the highest validation accuracy among the tested models. The architecture performed better at capturing fine-grained visual features present in clothing images.
-
-- One of the reasons Xception works well for this task is its use of depthwise separable convolutions, which allow the network to learn spatial and channel-wise features more efficiently than standard convolution layers. This makes the model particularly effective for datasets where subtle visual differences between classes exist, such as distinguishing between shirts, t-shirts, and long sleeves.
-
-- Because of its strong feature extraction capability and superior performance during experimentation, Xception was selected as the final backbone architecture for the classifier.
-
-### Alternative Models to Consider
-
-- Although Xception performed best in this project, several other architectures are commonly used for image classification and can also be effective depending on the dataset size and computational constraints:
-
-- ResNet50 / ResNet101 – Strong baseline models with residual connections that help training deeper networks.
-
-- MobileNetV2 / MobileNetV3 – Lightweight models suitable for deployment on mobile or low-resource environments.
-
-- EfficientNet – Highly optimized architecture balancing accuracy and computational efficiency.
-
-- VGG16 / VGG19 – Simpler architectures often used as baselines in transfer learning experiments.
-
-- These architectures are widely recommended for transfer learning tasks and can serve as strong alternatives when experimenting with similar image classification problems.
-- 
-## Model Training Pipeline
-
-- Load pretrained Xception base (include_top=False) for feature extraction.
-
-- Apply GlobalAveragePooling2D to get vector representation.
-
-- Add custom dense layers with dropout for regularization.
-
-- Compile the model with Adam optimizer and Categorical Crossentropy.
-
-- Train the model using data augmentation.
-
-- Save checkpoints for the best performing model.
-
-- Evaluate on validation data to monitor accuracy and overfitting.
-
-## Results
-
-Achieved high accuracy on the validation set without significant overfitting 88%.
-- Test Accuracy = 91%
-- Train Accuracy = 90%
+If you have any questions or suggestions, feel free to reach out!
