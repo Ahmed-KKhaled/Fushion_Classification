@@ -2,6 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0+-FF6F00?logo=tensorflow&logoColor=white)
+![Keras](https://img.shields.io/badge/Keras-3.0+-D00000?logo=keras&logoColor=white)
 ![Seaborn](https://img.shields.io/badge/Seaborn-0.12+-teal)
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 ## 📌 Overview
