@@ -121,3 +121,6 @@ Xception outperformed other models due to:
 ## 📬 Contact
 If you have any questions or suggestions, feel free to reach out!
 email : ahmedkhaled5.ml@gmail.com
+
+<p align="center">Made with ❤️ | Give it a ⭐ if you found it useful!</p>
+
