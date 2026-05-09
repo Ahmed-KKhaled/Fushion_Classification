@@ -105,6 +105,26 @@ Xception outperformed other models due to:
 - Better spatial + channel feature extraction  
 - Strong performance on fine-grained differences (e.g. shirt vs t-shirt)
 ---
+
+## 📁 Project Structure
+
+```
+Fushion_Classification/
+│
+├── Fushion_Classification_project/
+│   └── notebook/
+│       ├── resnet50.ipynb.ipynb   
+│       ├── vgg16.ipynb
+|       ├── xception.ipynb
+│
+|   └── Data Augmentation
+|   └── Data 
+|   └── Pretrain_models
+|   └── uii
+├── requirements.txt                       # Python dependencies
+└── README.md                              # Project documentation
+```
+
 ## 🚀 Future Improvements
 - Hyperparameter tuning (batch size, learning rate schedules)
 - Fine-tuning deeper layers of Xception
