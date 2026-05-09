@@ -106,6 +106,49 @@ Xception outperformed other models due to:
 - Strong performance on fine-grained differences (e.g. shirt vs t-shirt)
 ---
 
+---
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Ahmed-KKhaled/Fushion_Classification.git
+cd Fushion_Classification
+```
+
+### 2. Create a virtual environment (recommended)
+
+```bash
+python -m venv venv
+source venv/bin/activate        # Mac/Linux
+venv\Scripts\activate           # Windows
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Download the dataset
+
+**Source:** [Roboflow Custom Dataset](https://drive.google.com/drive/folders/1k-4sEVlHFykykAbdwwZEXew4LLb9nzFs?usp=sharing)
+
+---
+
+## 🚀 Usage
+
+### Run the full notebook
+```bash
+jupyter notebook Fushion_Classification_project/notebook/xception.ipynb
+```
+### Run the Streamlit app
+
+```bash
+cd Fushion_Classification_project/uii
+streamlit run app.py
+```
+
 ## 📁 Project Structure
 
 ```
