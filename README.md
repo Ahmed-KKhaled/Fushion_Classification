@@ -112,8 +112,8 @@ Xception outperformed other models due to:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Ahmed-KKhaled/Fushion_Classification.git
-cd Fushion_Classification
+git clone https://github.com/Ahmed-KKhaled/Fashion_Classification.git
+cd Fashion_Classification
 ```
 
 ### 2. Create a virtual environment (recommended)
@@ -152,7 +152,7 @@ streamlit run app.py
 ## 📁 Project Structure
 
 ```
-Fushion_Classification/
+Fashion_Classification/
 │
 ├── Fushion_Classification_project/
 │   └── notebook/
